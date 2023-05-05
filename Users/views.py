@@ -9,12 +9,9 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import get_template
 from django.template import Context
 
-
-#################### index#######################################
 def index(request):
 	return render(request, 'user/templates/index.html', {'title':'index'})
 
-########### register here #####################################
 def register(request):
 	if request.method == 'POST':
 		form = UserRegisterForm(request.POST)
@@ -22,7 +19,7 @@ def register(request):
 			form.save()
 			username = form.cleaned_data.get('username')
 			email = form.cleaned_data.get('email')
-			######################### mail system ####################################
+
 			htmly = get_template('user/templates/Email.html')
 			d = { 'username': username }
 			subject, from_email, to = 'welcome', 'amaremek@gmail.com', email
@@ -30,14 +27,13 @@ def register(request):
 			msg = EmailMultiAlternatives(subject, html_content, from_email, [to])
 			msg.attach_alternative(html_content, "text/html")
 			msg.send()
-			##################################################################
+
 			messages.success(request, f'Your account has been created ! You are now able to log in')
 			return redirect('login')
 	else:
 		form = UserRegisterForm()
 	return render(request, 'user/templates/register.html', {'form': form, 'title':'register here'})
 
-################ login forms###################################################
 def Login(request):
 	if request.method == 'POST':
 
