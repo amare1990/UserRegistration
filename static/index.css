@@ -1,0 +1,40 @@
+body {
+  /* display: flex; */
+  /* width: 90%; */
+  margin: 0 auto;
+  /* background-color: red; */
+}
+
+.navbar-main {
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+}
+
+.welcome-body {
+  /* background-color: violet; */
+}
+
+.welcome-message {
+  color: green;
+  text-align: center;
+}
+
+.welcome-message span {
+  font-size: 60px;
+}
+
+.ul-links {
+  display: flex;
+  padding-left: 15px;
+  list-style: none;
+}
+
+.nav-link {
+  text-decoration: none;
+  padding-left: 15px;
+  color: azure;
+  /* font-size: 16px; */
+}
