@@ -47,9 +47,6 @@
   <summary>Front-end tech stacks</summary>
   <ul>
     <li><a href="www.ecma-international.org/publications-and-standards/standards/ecma-262/">JavaScript</a></li>
-    <li><a href="https://www.css3.com/">CSS3</a></li>
-    <li><a href="https://html5.org/>HTTML5</a></li>
-  </ul>
 </details>
 
 <details>
@@ -87,9 +84,10 @@ To get a local copy up and running, follow these steps.
 In order to run this project you need to have installed:
 
 ```sh
- - Python using `sudo apt-get install python`
- - pip3 using `     sudo apt-get install python3-pip`
- - virtual environment using 'python3 -m ven --your virtual name` command
+ - Python using sudo apt-get install python command
+ - pip3 using sudo apt-get install python3-pip command
+ - venv using pip3 install venv
+ - Create virtual environment using python3 -m ven --your virtual env name command
 ```
 
 
