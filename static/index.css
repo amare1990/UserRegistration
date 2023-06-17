@@ -53,6 +53,14 @@ body {
   width: auto;
 }
 
+.nav-link:active {
+  border-radius: 7px;
+  font-size: 44px;
+  width: auto;
+  height: 60px;
+  background-color: red;
+}
+
 .active {
   background-color: #fff;
   color: black;
