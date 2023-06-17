@@ -38,22 +38,22 @@
 <body>
 <nav>
   <header class="header-primary">
+
     <nav class="navbar-main">
       <div>
-        <a href="{% url 'index' %}" class="nav-link">Logo</a>
+        <a href="{% url 'index' %}" class="{% if request.path == '/' %}active{% endif %} nav-link nav-link-logo">Logo</a>
       </div>
       <ul class="ul-links">
-        <li class="link-item"><a href="{% url 'index' %}" class="nav-link">Home</a></li>
+        <li class="link-item"><a href="{% url 'index' %}" class="{% if request.path == '/' %}active{% endif %} nav-link">Home</a></li>
 
         {% if user.is_authenticated %}
-        <li class="link-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
+        <li class="link-item"><a href="{% url 'logout' %}" class="{% if request.path == '/logout/' %}active{% endif %} nav-link">Logout</a></li>
         {% else %}
-        <li class="link-item"><a href="{% url 'register' %}" class="nav-link">Sign up</a></li>
-        <li class="link-item"><a href="{% url 'login' %}" class="nav-link"> Log in</a></li>
+        <li class="link-item"><a href="{% url 'register' %}" class="{% if request.path == '/register/' %}active{% endif %} nav-link">Sign up</a></li>
+        <li class="link-item"><a href="{% url 'login' %}" class="{% if request.path == '/login/' %}active{% endif %} nav-link">Log in</a></li>
         {% endif %}
-
       </ul>
-  </nav>
+    </nav>
 
 </header>
 
@@ -67,6 +67,6 @@
     {% endblock start %}
   </div>
 
-
+  <script src="{% static 'javascript/index.js' %}"></script>
 </body>
 </html>
