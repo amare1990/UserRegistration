@@ -3,7 +3,14 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
 class UserRegisterForm(UserCreationForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs['autocomplete'] = 'off'
+        self.fields['password1'].widget.attrs['autocomplete'] = 'off'
+        self.fields['password2'].widget.attrs['autocomplete'] = 'off'
+
     phone_number = forms.CharField(max_length=20)
+    # image = forms.ImageField()
 
     class Meta:
         model = User

@@ -34,7 +34,7 @@ body {
 
 .nav-link {
   text-decoration: none;
-  padding-right: 35px;
+  padding-right: 25px;
   padding-left: 10px;
   color: azure;
   /* font-size: 16px; */
@@ -55,7 +55,7 @@ body {
 
 .nav-link:active {
   border-radius: 7px;
-  font-size: 44px;
+  font-size: 20px;
   width: auto;
   height: 60px;
   background-color: red;

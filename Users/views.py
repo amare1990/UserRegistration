@@ -10,11 +10,11 @@ from django.template.loader import get_template
 from django.template import Context
 
 def index(request):
-	return render(request, 'user/templates/index.html', {'title':'index'})
+	return render(request, 'user/templates/index.html', {'title':'Index'})
 
 def register(request):
 	if request.method == 'POST':
-		form = UserRegisterForm(request.POST)
+		form = UserRegisterForm(request.POST, request.FILES)
 		if form.is_valid():
 			form.save()
 			username = form.cleaned_data.get('username')
@@ -22,7 +22,7 @@ def register(request):
 
 			htmly = get_template('user/templates/Email.html')
 			d = { 'username': username }
-			subject, from_email, to = 'welcome', 'amaremek@gmail.com', email
+			subject, from_email, to = 'Welcome', 'amaremek@gmail.com', email
 			html_content = htmly.render(d)
 			msg = EmailMultiAlternatives(subject, html_content, from_email, [to])
 			msg.attach_alternative(html_content, "text/html")
