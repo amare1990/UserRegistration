@@ -5,10 +5,10 @@ from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
 
-from django.contrib.auth.forms import PasswordChangeForm
-from django.contrib.auth.views import PasswordChangeView
-from django.urls import reverse_lazy
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import path
+from Users.views import MyPasswordChangeView
+from django.contrib.auth.views import PasswordChangeDoneView
+
 
 urlpatterns = [
 

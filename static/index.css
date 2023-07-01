@@ -65,3 +65,10 @@ body {
   background-color: #fff;
   color: black;
 }
+
+
+/* Password change */
+.container-password-change {
+  width: 60%;
+  margin: 0 auto;
+}

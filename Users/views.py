@@ -9,6 +9,12 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import get_template
 from django.template import Context
 
+
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth.views import PasswordChangeView
+from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 def index(request):
 	return render(request, 'user/templates/index.html', {'title':'Index'})
 
@@ -50,3 +56,10 @@ def Login(request):
 			messages.info(request, f'account done not exist plz sign in')
 	form = AuthenticationForm()
 	return render(request, 'user/templates/login.html', {'form':form, 'title':'log in'})
+
+
+#Password change
+class MyPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
+    form_class = PasswordChangeForm
+    success_url = reverse_lazy('password_change_done')
+    template_name = 'password_change.html'
