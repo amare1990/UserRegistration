@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
-from .forms import UserRegisterForm
+from .forms import UserRegisterForm, CustomPasswordResetForm
 from django.core.mail import send_mail
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import get_template
@@ -11,7 +11,7 @@ from django.template import Context
 
 
 from django.contrib.auth.forms import PasswordChangeForm
-from django.contrib.auth.views import PasswordChangeView
+from django.contrib.auth.views import PasswordChangeView, PasswordResetView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -63,3 +63,16 @@ class MyPasswordChangeView(LoginRequiredMixin, PasswordChangeView):
     form_class = PasswordChangeForm
     success_url = reverse_lazy('password_change_done')
     template_name = 'password_change.html'
+
+#Password change done view
+def custom_password_change_done(request):
+       # Custom logic or functionality here
+       return render(request, 'registration/password_change_done.html')
+
+
+# Password reset view
+class CustomPasswordResetView(PasswordResetView):
+		form_class = CustomPasswordResetForm
+		template_name = 'registration/password_reset.html'
+		# email_template_name = 'user/templates/Email.html'
+		success_url = '/password_reset/done/'

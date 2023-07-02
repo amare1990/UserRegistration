@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, PasswordResetForm
 
 class UserRegisterForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
@@ -15,3 +15,8 @@ class UserRegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'first_name' ,'last_name', 'email', 'phone_number', 'password1', 'password2']
+
+
+class CustomPasswordResetForm(PasswordResetForm):
+    # Add any additional fields or customizations here
+    email_address = forms.EmailField(label='Email Address')

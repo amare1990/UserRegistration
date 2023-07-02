@@ -1,3 +1,8 @@
+*{
+  box-sizing: border-box;
+}
+
+
 body {
   /* display: flex; */
   /* width: 90%; */
@@ -14,7 +19,13 @@ body {
 }
 
 .welcome-body {
-  /* background-color: violet; */
+  width: 60%;
+  margin: 0 auto;
+  border: 1px solid #333;
+  margin-top: 1rem;
+  text-align: center;
+  padding: 2rem 3rem 4rem;
+  background-color: violet;
 }
 
 .welcome-message {
@@ -71,4 +82,17 @@ body {
 .container-password-change {
   width: 60%;
   margin: 0 auto;
+  border: 1px solid #333;
+  margin-top: 1rem;
+  text-align: center;
+  padding: 2rem 3rem 4rem;
+  background-color: violet;
+}
+
+.btn {
+  background-color: #4CAF50;
+     color: white;
+     padding: 10px 20px;
+     border: none;
+     border-radius: 7px;
 }
