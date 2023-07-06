@@ -25,6 +25,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-k)+0b1dg*o7^%46rt-f+2-bqni=a)xfrs$()*!7y91b0evy@3d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
+#Client Id and Client secret for social logins
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '947050090042-8du8nln2mfeupadop6k4643f1ldeio65.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -57,6 +62,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
