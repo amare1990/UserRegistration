@@ -47,22 +47,35 @@
         <li class="link-item"><a href="{% url 'index' %}" class="{% if request.path == '/' %}active{% endif %} nav-link">Home</a></li>
 
         <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" id="accountDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Account Settings
+          <button class="btn btn-primary dropdown-toggle" type="button" id="photoDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {% if photo %}
+              <img src="{{ photo.url }}" alt="User Photo" class="user-photo">
+            {% else %}
+              Select Photo
+            {% endif %}
           </button>
           <div class="dropdown-menu" aria-labelledby="accountDropdown">
+            <a class="dropdown-item" href="{% url 'upload_photo' %}">Upload Photo</a>
             {% if user.is_authenticated %}
-              <li class="link-item"><a href="{% url 'logout' %}"
-                class="{% if request.path == '/logout/' %}active{% endif %} nav-link">Logout</a></li>
-              <li class="link-item"><a href="{% url 'password_reset' %}"
-                class="{% if request.path == '/password_reset/' %}active{% endif %} nav-link">Password reset</a></li>
-              <li class="link-item"><a href="{% url 'password_change' %}"
-                class="{% if request.path == '/password/change/' %}active{% endif %} nav-link">Password change</a></li>
+
+                <a href="{% url 'logout' %}" class="{% if request.path == '/logout/' %}active{% endif %}
+                dropdown-item">Logout
+               </a>
+
+              <a href="{% url 'password_reset' %}"
+                class="{% if request.path == '/password_reset/' %}active{% endif %}  dropdown-item">
+                Password reset
+              </a>
+
+              <a href="{% url 'password_change' %}"
+                class="{% if request.path == '/password/change/' %}active{% endif %} dropdown-item">Password change
+              </a>
+
             {% else %}
-              <li class="link-item"><a href="{% url 'register' %}"
-                class="{% if request.path == '/register/' %}active{% endif %} nav-link">Sign up</a></li>
-              <li class="link-item"><a href="{% url 'login' %}"
-                class="{% if request.path == '/login/' %}active{% endif %} nav-link">Log in</a></li>
+              <a href="{% url 'register' %}"
+                class="{% if request.path == '/register/' %}active{% endif %} dropdown-item">Sign up</a>
+              <a href="{% url 'login' %}"
+                class="{% if request.path == '/login/' %}active{% endif %} dropdown-item">Log in</a>
             {% endif %}
           </div>
         </div>

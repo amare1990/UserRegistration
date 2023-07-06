@@ -28,4 +28,7 @@ urlpatterns = [
 	path('password/change/', MyPasswordChangeView.as_view(), name='password_change'),
   path('password/change/done/', user_view.custom_password_change_done, name='password_change_done'),
 
+	path('upload/',user_view.upload_photo, name='upload_photo'),
+  path('photo_list/', user_view.photo_list_view, name='photo_list'),
+
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

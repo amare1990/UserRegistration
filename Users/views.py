@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
-from .forms import UserRegisterForm, CustomPasswordResetForm
+from .forms import UserRegisterForm, CustomPasswordResetForm, PhotoForm
 from django.core.mail import send_mail
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import get_template
@@ -14,6 +14,7 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.views import PasswordChangeView, PasswordResetView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Photo
 
 def index(request):
 	return render(request, 'user/templates/index.html', {'title':'Index'})
@@ -76,3 +77,19 @@ class CustomPasswordResetView(PasswordResetView):
 		template_name = 'registration/password_reset.html'
 		# email_template_name = 'user/templates/Email.html'
 		success_url = '/password_reset/done/'
+
+
+
+def upload_photo(request):
+    if request.method == 'POST':
+        form = PhotoForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('photo_list')
+    form = PhotoForm()
+    return render(request, 'user/templates/upload_photo.html', {'form': form})
+
+
+def photo_list_view(request):
+    photos = Photo.objects.all()
+    return render(request, 'user/templates/photo_list.html', {'photos': photos})

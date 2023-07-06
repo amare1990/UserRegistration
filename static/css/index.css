@@ -23,7 +23,7 @@ body {
   margin: 0 auto;
   border: 1px solid #333;
   margin-top: 1rem;
-  text-align: center;
+  /* text-align: center; */
   padding: 2rem 3rem 4rem;
   background-color: violet;
 }
@@ -84,7 +84,7 @@ body {
   margin: 0 auto;
   border: 1px solid #333;
   margin-top: 1rem;
-  text-align: center;
+  /* text-align: center; */
   padding: 2rem 3rem 4rem;
   background-color: violet;
 }
