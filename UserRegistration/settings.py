@@ -42,7 +42,10 @@ INSTALLED_APPS = [
     'Users.apps.UsersConfig',
     'crispy_forms',
     'crispy_bootstrap4',
-    'django_countries'
+    'django_countries',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 ]
 
 MIDDLEWARE = [
