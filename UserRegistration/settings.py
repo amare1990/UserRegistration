@@ -30,6 +30,22 @@ SECRET_KEY = 'django-insecure-k)+0b1dg*o7^%46rt-f+2-bqni=a)xfrs$()*!7y91b0evy@3d
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '947050090042-8du8nln2mfeupadop6k4643f1ldeio65.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 
+SOCIALACCOUNT_PROVIDERS = {
+    # 'facebook': {
+    #     'APP': {
+    #         'client_id': 'YOUR_FACEBOOK_APP_ID',
+    #         'secret': 'YOUR_FACEBOOK_APP_SECRET',
+    #     }
+    # },
+    'google': {
+        'APP': {
+            'client_id': SOCIAL_AUTH_GOOGLE_OAUTH2_KEY,
+            'secret': SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET,
+        }
+    },
+}
+
+
 DEBUG = True
 
 ALLOWED_HOSTS = []
